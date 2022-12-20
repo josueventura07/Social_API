@@ -4,11 +4,7 @@ const authControllers = require('./auth.controllers')
 const jwtSecret = require('../../config').api.jwtSecret
 const mailer = require('../utils/mailer')
 const config = require('../../config')
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> c86fa1f (add recovery password)
 const postLogin = (req, res) => {
     const {email, password} = req.body
 
@@ -43,51 +39,24 @@ const postLogin = (req, res) => {
 
 const postRecoveryToken = (req, res) => {
 
-<<<<<<< HEAD
     const { email } = req.body
-    authControllers.createRecoveryToken(email)
-=======
-    const { email } = req.body     
     if(email){
-        console.log('asdjnaskdfjbnsdkfj')
         authControllers.createRecoveryToken(email)
->>>>>>> c86fa1f (add recovery password)
         .then((data) => {
             if(data){
                 mailer.sendMail({
                     from: '<test.academlo@gmail.com>',
                     to: email,
                     subject: 'Recuperación de Contraseña',
-<<<<<<< HEAD
                     html: `<a href='${config.api.host}/api/v1/auth/recovery-password/${data.id}'>Recuperar contraseña</a>`
                 })
             }
             res.status(200).json({message: 'Email sended!, Check your inbox'})
-=======
-                    html: `<a href='${config.api.host}/api/v1/auth/recovery-password/${data.id}'>${config.api.host}/api/v1/auth/recovery-password/${data.id}</a>`
-                })
-            }
-            res.status(200).json({message: 'Email sent!, Check your inbox'})
->>>>>>> c86fa1f (add recovery password)
+
         })
         .catch((err) => {
             res.status(400).json({message: err.message})
         })
-<<<<<<< HEAD
-}
-
-const patchPassword = (req, res) => {
-    const id = req.params.id 
-    const {password} = req.body 
-
-    authControllers.changePassword(id, password)
-        .then(data => {
-            console.log('service:',data)
-            if(data){
-                res.status(200).json({message: 'Password updated succesfully'})
-=======
-    } else {
-        res.status(400).json({message: 'Invalid Data', fields: {email: 'example@example.com'}})
     }
 }
 
@@ -99,24 +68,15 @@ const patchPassword = (req, res) => {
         .then(data => {
             if(data){
                 res.status(200).json({message: 'Password updated succesfully!'})
->>>>>>> c86fa1f (add recovery password)
             } else {
                 res.status(400).json({message: 'URL expired'})
             }
         })
-<<<<<<< HEAD
-        .catch((err) => {
-=======
+
         .catch(err => {
->>>>>>> c86fa1f (add recovery password)
             res.status(400).json({message: err.message})
         })
 }
-
-
-
-
-
 
 
 module.exports = {
