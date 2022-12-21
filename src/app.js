@@ -9,6 +9,10 @@ const initModels = require('./models/initModels')
 const userRouter = require('./users/users.router')
 const authRouter = require('./auth/auth.router')
 const postRouter = require('./posts/posts.router')
+<<<<<<< HEAD
+=======
+const followRouter = require('./follows/follows.router')
+>>>>>>> development
 
 //? Initial Configs
 
@@ -41,6 +45,10 @@ app.get('/', (req, res) => {
     })
 })
 
+<<<<<<< HEAD
+=======
+app.use('/api/v1', followRouter)
+>>>>>>> development
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/posts', postRouter)

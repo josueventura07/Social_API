@@ -3,6 +3,10 @@ const RecoveryPasswords = require('./recoveryPasswords.models')
 const Posts = require('./posts.models')
 const Likes = require('./likes.models')
 const Comments = require('./comments.models')
+<<<<<<< HEAD
+=======
+const Follows = require('./follows.models')
+>>>>>>> development
 
 const initModels = () => {
     //? FK = RecoveryPasswords
@@ -21,6 +25,12 @@ const initModels = () => {
     Posts.hasMany(Likes)
     Likes.belongsTo(Posts)
 
+<<<<<<< HEAD
+=======
+    Users.hasMany(Follows)
+    Follows.belongsTo(Users)
+
+>>>>>>> development
 }
 
 module.exports = initModels

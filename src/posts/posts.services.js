@@ -77,4 +77,8 @@ module.exports = {
     postNewPost,
     patchPost,
     deletePost
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> development
