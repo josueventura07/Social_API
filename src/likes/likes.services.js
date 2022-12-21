@@ -5,7 +5,10 @@ const getAllLikesByPost = (req, res) => {
     likeControllers.findAllLikesFromPost(id) 
         .then(data => {
             if(data){
-                res.status(200).json(data)
+                res.status(200).json({
+                    count: data.length,
+                    users: data
+                })
             } else {
                 res.status(404).json({message: 'Invalid ID'})
             }
@@ -32,5 +35,6 @@ const postLike = (req, res) => {
 }
 
 module.exports = {
-    getAllLikesByPost, postLike
+    getAllLikesByPost, 
+    postLike
 }

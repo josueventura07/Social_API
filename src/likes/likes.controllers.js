@@ -1,13 +1,18 @@
 const uuid = require('uuid')
 const Likes = require('../models/likes.models')
+const Users = require('../models/users.models')
 
 const findAllLikesFromPost = async (postId) => {
     const data = await Likes.findAll({
         where :{
             postId: postId
+        },
+        include: {
+            model: Users,
+            attributes: ['id', 'firstName', 'lastName']
         }
     })
-    return data
+    return data.map(like => like.user)
 }
 
 const createLike = async (obj) => {

@@ -45,6 +45,7 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/posts', postRouter)
 
+
 app.listen(config.api.port, () => {
     console.log(`Server started on ${config.api.host}`)
 })
