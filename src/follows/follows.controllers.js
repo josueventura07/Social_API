@@ -32,9 +32,10 @@ const findMyFollowings = async (userId) => {
         },
         include: {
             model: Users,
+            attributes: ['id', 'firstName', 'lastName']
         }
     })
-    return data
+    return data.map(item => item.user)
 }
 
 
