@@ -22,8 +22,19 @@ const initModels = () => {
     Posts.hasMany(Likes)
     Likes.belongsTo(Posts)
 
+    //? Users - Follows (Following)
     Users.hasMany(Follows)
-    Follows.belongsTo(Users)   
+    Follows.belongsTo(Users, {
+        as: "following",
+        foreignKey: "userId2"
+    })
+    
+    Follows.belongsTo(Users, {
+        as: 'followers',
+        foreignKey: 'userId'
+    })
+    
+    
 }
 
 module.exports = initModels

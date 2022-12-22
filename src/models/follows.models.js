@@ -28,6 +28,16 @@ const Follows = db.define('follows', {
             model: Users
         },
     }
+}, {
+    //? Validacion para evitar seguir a una persona 2 veces
+    // uniqueKeys: {
+    //     follows_unique: {
+    //         fields: ['userId', 'userId2']
+    //     }
+    // }
 })
+
+//? select * from followers inner join users on followers.userId2 = users.id;
+//? select * from followers inner join users on followers.userId = users.id;
 
 module.exports = Follows
