@@ -19,14 +19,14 @@ const findMyFollowers = async (userId) => {
         },
         include: {
             model: Users,
-            attributes: ['id', 'firstName', 'lastName']
+            attributes: ['id', 'firstName', 'lastName'],
         }
     })
     return data.map(item => item.user)
 }
 
 const findMyFollowings = async (userId) => {
-    const data = await Follows.findAll({
+     const data = await Follows.findAll({
         where: {
             userId : userId
         },
@@ -35,7 +35,8 @@ const findMyFollowings = async (userId) => {
             attributes: ['id', 'firstName', 'lastName']
         }
     })
-    return data.map(item => item.user)
+    
+     return data.map(item => item.user)
 }
 
 

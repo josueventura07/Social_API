@@ -1,11 +1,8 @@
 const router = require('express').Router()
 
 const userServices = require('./users.services')
-<<<<<<< HEAD
-=======
 const followServices = require('../follows/follows.services')
 
->>>>>>> development
 const passportJWT = require('../middlewares/auth.middleware')
 const roleMiddleware= require('../middlewares/role.middleware')
 
@@ -23,10 +20,7 @@ router.route('/:id')
     .patch(passportJWT.authenticate('jwt', {session: false}), roleMiddleware, userServices.patchUser)
     .delete(passportJWT.authenticate('jwt', {session: false}), roleMiddleware, userServices.deleteUser)
 
-<<<<<<< HEAD
-=======
 router.route('/:id/follow')
     .post(passportJWT.authenticate('jwt', {session: false}), followServices.postFollower)
->>>>>>> development
 
 module.exports = router
